@@ -1,0 +1,234 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+ul{
+list-style: none;
+}
+
+a{
+text-decoration: none;
+}
+
+img{
+vertical-align: bottom;
+max-width: 100%;/* fludイメージにしないと画像が突き抜けてしまうので、１００％表示にする */
+}
+
+/* 【カスタムプロパティの設定 /変数の使い方：rootを使う　　　】 */
+:root{
+--top:#2b6a2b;
+--spring:#ee9fb0;
+--summer:#3141a1e8;
+--fall:#cc5a2d;
+--winter:#787878;
+--base:#ffffff;
+--text:#222222;
+}
+
+/* 【共通部分】 */
+body{
+background-color: var(--base);
+color: var(--text);
+font-family: serif; /* 明朝体指定。フォントカラーを指定しないと、文字が変わってしまう */
+}
+
+header{
+padding: 40px 0;
+text-align: center;  
+}
+
+h1{
+font-family: "Zen Antique", serif;/* google fontsの＠import>font-familyのみコピペ */
+font-size: 34px;/* 規定は32px */
+}
+
+.g-nav{
+background-color: var(--top);
+height: 50px;/* 端から端まで100％の場合は、width不要 */
+margin-bottom: 50px;
+}
+
+.g-nav>ul{
+display: flex;
+max-width: 960px;/* 画面の幅が小さくなっても、画面からはみ出さない */
+margin: 0 auto;/* 左右が真ん中に来るように設定する */
+}
+
+.g-nav li{/* g-navからみた、孫に命令。半角スペースを入れる */
+width: 20%;
+}
+
+.g-nav a{
+color: var(--base);
+display: block;/*  display:/*  bolck;にすると、横幅全部に下線がくる */
+line-height: 50px;/* g-navのheightに合わせる */
+text-align: center;
+border-left: 1px solid var(--base);/*  全体にborder-leftを引く */
+}
+
+.g-nav li:last-of-type>a{/* g-navの孫の子孫の子供であるaの右側に線を入れる */
+border-right: 1px solid var(--base);
+}
+
+.g-nav a:hover{
+background-color: #798d7d;
+}
+
+footer{
+background-color: var(--top);
+padding: 30px 0;
+}
+
+footer>p{
+text-align: center;
+color: var(--base);
+margin-bottom: 30px;
+}
+
+.sns{
+max-width: 960px;
+margin: 0 auto;
+display: flex;
+gap: 20px;
+
+}
+
+.sns>li{
+width: 44px;
+}
+
+main{
+max-width: 960px;
+margin: 0 auto 100px;
+}
+
+/* ***************ここまでが共通ページ********************** */
+
+/* **********************【トップページの設定】*************************** */
+.main-visual{
+margin-bottom: 100px;
+}
+
+.main-copy>h2{
+text-align: center; 
+font-size: 30px;
+margin-bottom: 20px;
+font-family: "Zen Antique", serif;
+
+}
+
+.main-copy>p{
+text-align: center;
+font-size: 20px;
+line-height: 2;
+max-width: 740px;
+margin: 0 auto;
+}
+
+/***************** 【各季節ページのスタイル】************************ */
+.wrapper{
+display: flex;
+flex-direction: row-reverse;/* 文字と写真の並びを逆にする */
+}
+
+.text-box{
+width: 45%;
+padding: 20px 30px 0;/* 上、左右、下の内側の余白 */
+}
+
+.text-box>h2{
+font-family: "Zen Antique", serif;
+margin-bottom: 20px;
+}
+
+.text-box>p{
+line-height: 1.6;
+}
+
+.img-box{
+width: 55%;
+}
+
+/* ********【春ページのスタイル設定】************** */
+
+.spring>.g-nav, .spring>footer{
+background-color: var(--spring);
+}
+
+/* *********【夏ページのスタイル設定】***************** */
+
+.summer>.g-nav, .summer>footer{
+background-color: var(--summer);
+}
+
+/* *********【秋ページのスタイル設定】***************** */
+
+.fall>.g-nav, .fall>footer{
+background-color: var(--fall);
+}
+
+/* *********【冬ページのスタイル設定】***************** */
+
+.winter>.g-nav, .winter>footer{
+background-color: var(--winter);
+}
+
+/* ***********【960px以下のスタイル設定】********** */
+@media (width <= 960px){
+main{
+padding: 0 10px;
+}
+
+/* **********************【トップページのスタイル設定】*************************** */
+.main-visual{
+margin-bottom: 60px;
+}
+
+.main-copy>h2{
+font-size: 20px;
+margin-bottom: 15px;
+}
+
+.main-copy>p{
+font-size: 16px;
+line-height: 1.75;
+}
+
+.sns{
+justify-content: center;/*  footerのiconを中央揃え */
+}
+}
+
+
+/* **********【767px以下のスタイル設定】*******(iPad標準サイズ以下はスマホ扱い) */
+@media (width <= 767px){
+.wrapper{
+display: flex;
+flex-direction: column-reverse;/* 写真が上、テキストが下の縦並びにする */
+gap: 40px 0;
+}
+
+.text-box{
+width: 100%;
+}
+
+.text-box>h2{
+text-align: center;
+}
+
+.img-box{
+width: 100%;
+text-align: center;
+}
+}
+
+/* ******【CURRENTの設定】※現在どのページにいるか識別するため****** */
+.g-nav li.current>a{
+background-color: #798d7d;
+}

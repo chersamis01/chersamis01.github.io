@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>remの使い方</title>
+
+<style>
+html{
+font-size: 100%; /* ※100%=16px, 62.5%=10px、なので、大元の基準を設定変更する。 */
+}
+
+h1{
+font-size: clamp(1.625rem, 0.938rem + 2.75vw, 3rem);
+}
+
+p{
+font-size: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Lorem, ipsum dolor.</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam dolorum impedit repudiandae veritatis, aspernatur ratione, adipisci deserunt soluta, earum atque nisi. Illum libero nulla blanditiis est sunt similique, reiciendis quas.</p>  
+  
+</body>
+</html>

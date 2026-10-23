@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+img{
+vertical-align: bottom;
+width: 100%;
+height: auto;
+}
+
+body{
+font-size: 100%;
+line-height: 1.5;
+font-family: sans-serif;
+background-color: #fff;
+color: #333;
+}
+
+header{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+z-index: 1;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/bg01.webp) no-repeat center/cover;
+  /* 💡ここで透明度（0.0 〜 1.0）を調整してください */
+  opacity: 0.8; 
+  /* 背景画像を文字の後ろに配置 */
+  z-index: -1; 
+}
+
+header div{
+border-radius: 8px;
+}
+
+h1{
+width: 320px;
+z-index: 100;
+}
+
+.img-box01{
+position: absolute;
+top: 24%;
+right: 12%;
+width: 320px;
+height: 360px;
+background: url(../img/03-1.webp) no-repeat center/cover;
+}
+
+.img-box02{
+position: absolute;
+top: 18%;
+left: 16%;
+width: 280px;
+height: 440px;
+background: url(../img/01-2.webp) no-repeat center/cover;
+z-index: 10;
+}
+
+.img-box03{
+position: absolute;
+top: 24%;
+left: 0;
+width: 320px;
+height: 360px;
+background: url(../img/03-6.webp) no-repeat center/cover;
+
+}
+
+.img-box04{
+position: absolute;
+top: 18%;
+right: 0;
+width: 240px;
+height: 440px;
+background: url(../img/02-3.webp) no-repeat center/cover;
+}
+
+h2{
+/* 以下２行追加 */
+position: relative; /* 💡追記 */
+z-index: 20;   
+
+font-size: 2.2rem;
+font-weight: 400;
+text-align: center;
+margin: 120px auto 0;
+  /* 💡ここを追加：白く強くぼかす影 */
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px #fff,
+    0 0 20px #fff;
+
+
+}
+
+.flex-container{
+/* 以下２行追加 */
+position: relative; /* 💡追記 */
+z-index: 20;  
+
+max-width: 960px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 60px 30px;
+margin: 60px auto;
+h3{
+margin-bottom: 16x;
+text-align: center;
+font-size: 1.2rem;
+}
+p{
+padding: 12px;
+line-height: 2;
+}
+img{
+border-radius: 6px;
+}
+}
+
+.flex-container > div{
+width: 48%;
+}
+
+.flex-container p{
+text-align: justify;
+}
+
+footer{
+background-color: #938383;
+color: #fff;
+text-align: center;
+padding: 20px;
+}
+
+@media (width <=740px){
+h1{
+width: 80%;
+}
+
+header > div{
+display: none;
+}
+
+.flex-container{
+width: 100%;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.flex-container>div{
+width: 100%;
+}
+
+.flex-container .order01{
+  order: 1;
+}
+
+.flex-container .order02{
+  order: 2;
+}
+
+.flex-container .order03{
+  order: 3;
+}
+
+.flex-container .order04{
+  order: 4;
+}
+
+.flex-container .order05{
+  order: 5;
+}
+
+.flex-container .order06{
+  order: 6;
+}
+}
+

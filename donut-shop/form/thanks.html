@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felica Bread&Salad | 完了ページ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+
+<link rel="stylesheet" href="../css/hamburgers.css">
+<link rel="shortcut icon" href="../favicon..png">
+<link rel="apple-touch-icon" href="../touch-icon.png" sizes="192x192">
+
+</head>
+
+<body>
+<header>
+<h1><a href="../">Felica<span>Bread&Salad</span></a></h1>
+
+<nav class="pc-nav">
+<ul>
+  <li><a href="../index.html#news">NEWS</a></li>
+  <li><a href="../index.html#about">ABOUT</a></li>
+  <li><a href="../index.html#item">ITEM</a></li>
+  <li><a href="../index.html#access">ACCESS</a></li>
+  <li><a href="#"><img src="../img/facebook-brands-solid-full.svg" alt=""></a></li>
+  <li><a href="#"><img src="../img/instagram-brands-solid-full.svg" alt=""></a></li>
+</ul>
+</nav>
+
+<button class="hamburger hamburger--3dy" type="button" id="ham-btn">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+
+</header>  
+
+<nav id="sp-nav">
+<ul>
+  <li><a href="../index.htm#news">NEWS</a></li>
+  <li><a href="../index.htm#about">ABOUT</a></li>
+  <li><a href="../index.htm#item">ITEM</a></li>
+  <li><a href="../index.htm#access">ACCESS</a></li>
+  <li><a href="#"><img src="../img/facebook-brands-solid-full.svg" alt=""></a></li>
+  <li><a href="#"><img src="../img/instagram-brands-solid-full.svg" alt=""></a></li>
+</ul>
+</nav>
+
+<main>
+
+<section id="thanks" class="page-section">
+<h2 data-ja="完了">Thanks</h2> <!-- ※deta属性はcssで呼び出す必要がある -->
+<h3>お問い合わせをありがとうございました。</h3>
+<p>お問い合わせの内容を確認後、<br>
+ご登録いただいたメールアドレスに<br>担当のものより返信いたしますので、<br>
+今暫くおまちください。</p>
+
+
+<a href="../" class="button-44">トップページに戻る</a>  
+
+</section>
+
+</main>
+
+<ul class="shops">
+<li><a href="#">Alexander</a></li>
+<li><a href="#">Amber Hour</a></li>
+<li><a href="#">アウクセシア</a></li>
+<li><a href="#">Canvas&Cork</a></li>
+<li><a href="#">Grain&Green</a></li>
+<li><a href="#">Boulangerie Patisserie</a></li>
+</ul>
+
+
+<footer>
+<p class="footer-title">Felica Bread&Salad</p>
+<p class="copy">&copy; <span id="this-year"></span></p>  
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+$(function(){
+
+
+// ※西暦を表示
+const fullYear = new Date().getFullYear();
+// const fullYear = 2027; ※来年以降の確認、仮で入力してみる
+console.log(fullYear);
+
+if(fullYear >= 2027){
+$('#this-year').text('2026 - ' + fullYear);
+}else{
+$('#this-year').text(fullYear);
+}
+
+// ※ハンバーガーボタン
+// #ham-btnをon.clickしたら
+$('#ham-btn').on('click',function(){
+$(this).toggleClass('is-active');
+
+$('#sp-nav').fadeToggle(600)
+});
+
+// ※#sp-nav a をon.clickしたら
+$('#sp-nav a').on('click',function(){
+$('#sp-nav').fadeOut(600);
+$('#ham-btn').removeClass('is-active');
+
+});
+});
+
+</script>
+  
+</body>
+</html>

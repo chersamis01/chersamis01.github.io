@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felica Bread&Salad | 入力ページ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+
+<link rel="stylesheet" href="../css/hamburgers.css">
+<link rel="shortcut icon" href="../favicon..png">
+<link rel="apple-touch-icon" href="../touch-icon.png" sizes="192x192">
+
+</head>
+
+<body>
+<header>
+<h1><a href="../">Felica<span>Bread&Salad</span></a></h1>
+
+<nav class="pc-nav">
+<ul>
+  <li><a href="../index.html#news">NEWS</a></li>
+  <li><a href="../index.html#about">ABOUT</a></li>
+  <li><a href="../index.html#item">ITEM</a></li>
+  <li><a href="../index.html#access">ACCESS</a></li>
+  <li><a href="#"><img src="../img/facebook-brands-solid-full.svg" alt=""></a></li>
+  <li><a href="#"><img src="../img/instagram-brands-solid-full.svg" alt=""></a></li>
+</ul>
+</nav>
+
+<button class="hamburger hamburger--3dy" type="button" id="ham-btn">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+
+</header>  
+
+<nav id="sp-nav">
+<ul>
+  <li><a href="../index.htm#news">NEWS</a></li>
+  <li><a href="../index.htm#about">ABOUT</a></li>
+  <li><a href="../index.htm#item">ITEM</a></li>
+  <li><a href="../index.htm#access">ACCESS</a></li>
+  <li><a href="#"><img src="../img/facebook-brands-solid-full.svg" alt=""></a></li>
+  <li><a href="#"><img src="../img/instagram-brands-solid-full.svg" alt=""></a></li>
+</ul>
+</nav>
+
+<main>
+
+<section id="form" class="page-section">
+<h2 data-ja="お問い合わせ">Form</h2> <!-- ※deta属性はcssで呼び出す必要がある -->
+
+<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfyufSJFVNKlTZqfGCvpyUJgxh6x5ranKDLc42xoWf5Kx5kkQ/formResponse" method="post" class="form-wrapper" id="g-form">  
+<dl>
+<dt>お名前</dt>
+<dd><input type="text" required placeholder="お名前を入力してください" autocomplete="name" name="entry.366585221" class="textbox-2"></dd>
+
+<dt>メールアドレス</dt>
+<dd><input type="email" required placeholder="メールアドレスを入力してください" autocomplete="email" inputmode="email" name="entry.2002514680" class="textbox-2">
+</dd>  
+
+<dt>お問い合わせ項目</dt>
+<dd>
+<fieldset class="radio-3">
+
+<label for="list-1">
+<input type="radio" name="entry.1373670909" id="list-1" checked required value="商品について">商品について
+</label>
+
+<label for="list-2">
+<input type="radio" name="entry.1373670909" id="list-2" value="採用について">採用について
+</label>
+
+<label for="list-3">
+<input type="radio" name="entry.1373670909" id="list-3" value="その他">その他
+</label>
+</fieldset>
+
+</dd>
+
+<dt>お問い合わせの内容</dt>
+<dd>
+<textarea name="entry.765002075" required placeholder="お問い合わせの内容を入力してください" class="textbox-2"></textarea>  
+</dd>
+</dl>
+
+<button type="submit" class="button-56">送信</button>
+
+</form>
+
+</section>
+
+
+</main>
+
+<ul class="shops">
+<li><a href="#">Alexander</a></li>
+<li><a href="#">Amber Hour</a></li>
+<li><a href="#">アウクセシア</a></li>
+<li><a href="#">Canvas&Cork</a></li>
+<li><a href="#">Grain&Green</a></li>
+<li><a href="#">Boulangerie Patisserie</a></li>
+</ul>
+
+
+<footer>
+<p class="footer-title">Felica Bread&Salad</p>
+<p class="copy">&copy; <span id="this-year"></span></p>  
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+$(function(){
+
+
+// ※西暦を表示
+const fullYear = new Date().getFullYear();
+// const fullYear = 2027; ※来年以降の確認、仮で入力してみる
+console.log(fullYear);
+
+if(fullYear >= 2027){
+$('#this-year').text('2026 - ' + fullYear);
+}else{
+$('#this-year').text(fullYear);
+}
+
+// ※ハンバーガーボタン
+// #ham-btnをon.clickしたら
+$('#ham-btn').on('click',function(){
+$(this).toggleClass('is-active');
+
+$('#sp-nav').fadeToggle(600)
+});
+
+// ※#sp-nav a をon.clickしたら
+$('#sp-nav a').on('click',function(){
+$('#sp-nav').fadeOut(600);
+$('#ham-btn').removeClass('is-active');
+});
+
+// ※ajaxでリダイレクト(入力データを、完了フォームへ送る)
+$('#g-form').submit(function (event) {
+const formData = $('#g-form').serialize();
+$.ajax({
+  url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfyufSJFVNKlTZqfGCvpyUJgxh6x5ranKDLc42xoWf5Kx5kkQ/formResponse",
+  data: formData,
+  type: "POST",
+  dataType: "xml",
+  statusCode: {
+    0: function(){
+      window.location.href = "thanks.html"; /* ※移動先のパス */
+      },
+    200: function(){
+     //失敗したときの処理
+      }
+    }
+  });
+//googleformへのページ遷移をキャンセル
+event.preventDefault();
+});
+
+
+
+
+});
+
+</script>
+  
+</body>
+</html>

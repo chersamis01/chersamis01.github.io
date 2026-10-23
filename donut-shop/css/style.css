@@ -1,0 +1,607 @@
+@charset "utf-8";
+
+html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,:after,:before{background-repeat:no-repeat;box-sizing:inherit}:after,:before{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0;box-sizing:border-box;}audio:not([controls]){display:none;height:0}hr{overflow:visible}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}summary{display:list-item}small{font-size:80%}[hidden],template{display:none}abbr[title]{border-bottom:1px dotted;text-decoration:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace,monospace}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}input{border-radius:0}[role=button],[type=button],[type=reset],[type=submit],button{cursor:pointer}[disabled]{cursor:default}[type=number]{width:auto}[type=search][type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit}optgroup{font-weight:700}button{overflow:visible}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:0;padding:0}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button:-moz-focusring{outline:1px dotted}[type=reset],[type=submit],button,html [type=button]button,select{text-transform:none}button,input,select,textarea{background-color:transparent;border-style:none;color:inherit}select::-ms-expand{display:none}select::-ms-value{color:currentColor}legend{border:0;color:inherit;display:table;max-width:100%;white-space:normal}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}[type=search]img{border-style:none;vertical-align: bottom}progress{vertical-align:baseline}svg:not(:root){overflow:hidden}audio,canvas,progress,video{display:inline-block}@media screen{[hidden~=screen]{display:inherit}[hidden~=screen]:not(:active):not(:focus):not(:target){position:absolute!important;clip:rect(0 0 0 0)!important}}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled]{cursor:default}::-moz-selection{background-color:#b3d4fc;color:#000;text-shadow:none}::selection{background-color:#b3d4fc;color:#000;text-shadow:none}ul,ol{list-style:none;}a{text-decoration:none;}img{max-width: 100%;vertical-align: bottom;}
+
+/* ※変数を登録 */
+:root{
+--base_color: #ffffff;
+--text_color: #444444;
+--bgc_temporary: #f7e2e2;
+--font_en:"Playfair Display", serif;
+--font_ja:"Noto Sans KR", sans-serif;
+}
+
+html{
+scroll-behavior: smooth;
+}
+
+body{
+background-color: var(--base_color);
+color: var(--text_color);
+font-family: sans-serif;
+a{
+color: var(--text_color);
+}
+}
+
+/* ※headerのスタイル部分 */
+header{
+width: fit-content;
+height: fit-content;
+background-color: var(--bgc_temporary);  /* ※positionを書ける場合は、必ず必要 */
+position: fixed;
+top: 0;
+left: 0;
+z-index: 100;
+padding: 100px 20px 20px;
+@media(width <= 1100px){
+padding: 100px 10px 20px;
+}
+
+>h1{
+font-family: var(--font_en);
+font-size: clamp(1.25rem, -4.25rem + 8vw, 2.75rem);
+margin-bottom: 60px;
+span{
+display: block;
+font-size: 0.8em;
+}
+}
+}
+
+/* ※pc用のナビゲーションの指定 */
+.pc-nav li{
+margin-bottom: 20px;
+&:nth-of-type(n+5){
+width: 40px;
+margin-bottom: 0;
+}
+>a{
+display: block;
+padding: 6px 0;
+&:hover{
+text-decoration: underline 3px;
+text-underline-offset: 4px;
+}
+}
+}
+
+/* ※main-visual部分のスタイル：css */
+.main-visual{
+width: calc(100% - 90px);
+height: calc(100vh - 60px);
+margin: 30px 30px 30px 60px;
+
+li{ /* ※imgの親に命令 */
+width: calc(100% - 90px);
+height: calc(100vh - 60px);
+>img{
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+}
+}
+
+/* ※page-section、共通部分の設定 */
+.page-section{
+/* min-height: 100vh; 　不要*/
+padding: 100px 20px;
+>h2{
+text-align: center;
+font-size: clamp(1.5rem, 1.313rem + 0.75vw, 1.875rem);
+font-family: var(--font_en);
+margin-bottom: 100px;
+&::after{
+content: attr(data-ja);
+display: block;
+font-size: 0.7em;     /* ※1emで親要素と同じ大きさ。親要素を基準に、emで、文字の大きさを指定できる */
+font-family: var(--font_ja);
+}
+}
+}
+
+/* ※お知らせ部分のスタイル設定 */
+#news-list{
+max-width: 680px;
+margin: 0 auto;
+>dt{
+margin-bottom: 10px;
+font-size: 18px;
+font-weight: bold;
+&:nth-of-type(n+4){
+display: none;
+}
+}
+>dd{
+margin-bottom: 40px;
+&:nth-of-type(n+4){
+display: none;
+}
+}
+}
+
+/* ※about部分のスタイル指定 */
+.about-title{
+font-family: var(--font_ja);
+text-align: center;
+font-size: clamp(1.25rem, 1.063rem + 0.75vw, 1.625rem);
+text-indent: -3rem;
+line-height: 2;
+margin-bottom: 50px;
+>span{
+display: block;
+margin-left: 6rem;
+}
+}
+
+.lead{
+font-family: var(--font_ja);
+text-align: center;
+font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem);
+line-height: 2;
+}
+
+/* ※スマホ(sp)の時だけ改行を有効にする */
+.sp-on{
+display: none;
+}
+
+/* ※商品画像のスタイル設定(item-wrapper) */
+.item-wrapper{
+max-width: 780px;
+@media(width <= 1100px){
+max-width: 680px;
+}
+
+margin: 0 auto;
+display: flex;
+gap: 0 20px;
+>a{
+display: block;
+width: calc((100% -40px) / 3);
+overflow: hidden;
+&:hover>img{
+scale: 1.2;
+}
+>img{
+transition: 0.2s;
+}
+}
+}
+
+/* ※パララックス部分：画像をずらす・固定する */
+.parallax{
+width: 100%;
+height: 100vh;
+background: url(../img/parallax-01.webp) no-repeat center center/cover fixed;   /* ※背景色、背景画像、 */
+background-attachment: fixed;
+}
+
+/* ※店舗情報部分 */
+.access-wrapper{
+max-width: 780px;
+
+@media(width <= 1100px){
+max-width: 680px;
+}
+
+margin: 0 auto;
+}
+
+.g-map{
+width: 100%;  
+aspect-ratio: 2/1.2;
+margin-bottom: 60px;
+>iframe{
+width: 100%;
+height: 100%;
+/* filter: blur(10px); ※ぼかす */
+filter: grayscale(0.8); /* ※0はそのまま、1は、白黒 */
+}
+}
+
+/* ※電話番某のリンク。a要素の機能を無効にしておく。PCの時は、一旦、電話がかからない設定(none) ⇔ allにするとリンクが有効になる */
+.tel{
+pointer-events: none;
+font-size: 24px;
+}
+
+
+.dl-wrapper{
+display: flex;
+>dl{
+width: 50%;
+display: flex;
+flex-wrap: wrap;
+>dt{
+width: 35%;
+margin-bottom: 15px;
+align-self: flex-end;
+}
+>dd{
+width: 65%;
+margin-bottom: 15px;
+}
+}
+}
+
+/* ※メールのリンク：hoverしたら、下線がでる */
+.email-link:hover{
+text-decoration: underline;
+text-underline-offset: 5px;
+}
+
+/* ※系列店のリンク：gridは、親にのみ命令をかける 。repeat()を使うと、全部同じ大きさになる。auto-fitは余白ができない⇔ auto-fillは余白が出る/余白ができる。 */
+.shops{
+width: 100%;
+display: grid;
+gap: 2px;
+border-bottom: 2px solid #fff;
+grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+position: relative; /* ※relativeにして、z-index: ;を指定する */
+z-index: 110;
+>li{
+
+background: url(../img/shop-01.webp) no-repeat center center/cover;
+&:nth-of-type(2){
+background: url(../img/shop-02.webp) no-repeat center center/cover;
+}
+&:nth-of-type(3){
+background: url(../img/shop-03.webp) no-repeat center center/cover;
+}
+&:nth-of-type(4){
+background: url(../img/shop-04.webp) no-repeat center center/cover;
+}
+&:nth-of-type(5){
+background: url(../img/shop-05.webp) no-repeat center center/cover;
+}
+&:nth-of-type(6){
+background: url(../img/shop-06.webp) no-repeat center center/cover;
+}
+
+>a{
+aspect-ratio: 4/3;  
+display: block;
+height: 100%;
+background-color: #000000AA;
+color: #ffffff;
+font-size: 22px;
+font-family: var(--font_ja);
+text-align: center;
+padding-top: 30%;
+font-weight: bold;
+&:hover{
+background-color: #00000044;
+transition: 0.3s;
+}
+}
+}
+}
+
+/* ※footerのスタイル部分 */
+footer{
+background-color: var(--text_color);
+color: var(--base_color);
+width: 100%;
+padding: 30px 0;
+text-align: center;
+position: relative;
+z-index: 110;
+.footer-title{
+font-family: var(--font_en);
+font-size: 24px;
+margin-bottom: 20px;
+}
+}
+
+/* ※　CTA(call to action)ボタン */
+.to-form{
+display: block;
+background-color: #741d5c;
+color: #ffffff;
+border-radius: 8px;
+writing-mode: vertical-rl;  /* ※縦書き、右列から左列へ */
+position: fixed;
+top: 50%;
+right: 0;
+translate: 0 -50%;  /* ※top50%だと、高さの真ん中にはこないので、半分上にずらす */
+padding: 10px;
+z-index: 120;
+&:hover{
+background-color: #f4fc22;  
+color: #333;
+border-radius: 8px;
+}
+}
+
+/* ※sp用パーツ */
+#sp-nav, #ham-btn{
+display: none;
+}
+
+@media(width <=960px){
+.pc-nav{
+display: none;
+}
+#ham-btn{
+display: block;  
+}
+
+/* ※headerのスタイル部分:スマホ用 */
+header{
+z-index: 130;
+width: 100%;
+height: 70px;
+padding: 0 0 0 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+>h1{
+font-size: clamp(1.25rem, -4.25rem + 8vw, 2.75rem);
+margin-bottom: 0;
+span{
+display: inline-block;
+}
+}
+}
+
+/* ※main-visual部分のスタイル：css */
+.main-visual{
+width: calc(100% - 30px);
+height: calc(60vh - 30px);
+margin: 85px 15px 15px;
+
+li{ /* ※imgの親に命令 */
+width: calc(100% - 30px);
+height: calc(60vh - 30px);
+}
+}
+
+/* ※page-section、共通部分の設定 */
+.page-section{
+padding: 100px 10px 40px;
+>h2{
+margin-bottom: 50px;
+}
+}
+
+/* ※お知らせ部分のスタイル設定 */
+#news-list{
+>dt{
+font-size: 16px;
+}
+>dd{
+margin-bottom: 30px;
+padding-right: 30px;
+font-size: 14px;
+}
+}
+
+/* ※blockにすると、(sp)の時に改行を有効にする */
+.sp-on{
+display: block;
+}
+
+/* ※商品画像のスタイル設定(item-wrapper) */
+.item-wrapper{
+flex-direction: column;
+gap: 40px 0;
+>a{
+width: 70%;
+margin: 0 auto;
+}
+}
+
+/* ※パララックス部分 */                                                                       
+.parallax{
+height: 60vh;
+background-attachment: scroll;
+}
+
+/* ※店舗情報部分*/
+/* ※電話番某のリンク。a要素の機能を無効にしておく。PCの時は、一旦、電話がかからない設定(none) ⇔ allにするとリンクが有効になる */
+.tel{
+pointer-events: all;
+}
+
+.dl-wrapper{
+/* display: flex; */
+flex-direction: column;
+gap: 10px 0;
+>dl{
+width: 100%;
+}
+}
+
+
+/* ※Sp用ナビの設定 */
+#sp-nav{
+/* display: block; */
+width: 100%;
+height: calc(100vh - 70px);  
+background-color: #e5e2e2;
+position: fixed;
+top: 70px;
+left: 0;
+z-index: 130;
+padding: 50px;
+li{
+margin-bottom: 10px;
+
+&:nth-of-type(n+5){
+width: 44px;
+margin-bottom: 5px;
+>a{
+border-bottom: 0;
+}
+}
+
+>a{
+display: block;
+padding: 6px;
+border-bottom: 2px solid var(--text_color);
+}
+}
+}
+
+}
+
+/* ※入力ページ */
+.form-wrapper{
+max-width: 680px;
+margin: 0 auto;
+dt{
+margin-bottom: 10px;
+}
+dd{
+margin-bottom: 40px;  
+}
+}
+
+textarea.textbox-2{
+height: 180px;
+}
+
+/* ※完了ページの設定 */
+#thanks{
+text-align: center;
+>h3{
+font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);  
+margin-bottom: 50px;
+}
+>p{
+font-size: clamp(1rem, 0.938rem + 0.25vw, 1.125rem);
+line-height: 2;
+margin-bottom: 80px;
+}  
+}
+
+
+
+/* ※テキストボックスのスニペット */
+.textbox-2 {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    background: #f7f7f7;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.textbox-2::placeholder {
+    color: #999;
+}
+
+/* ※ラジオボタンのスニペット */
+.radio-3 {
+    border: none;
+}
+
+.radio-3 label {
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    max-width: 300px;
+    margin-bottom: .4em;
+    padding: .5em .7em;
+    border: 1px solid #2589d0;
+    border-radius: 3px;
+    background-color: #2589d026;
+    cursor: pointer;
+}
+
+.radio-3 label:has(:checked) {
+    background-color: #2589d0;
+    color: #fff;
+}
+
+.radio-3 label::before,
+.radio-3 label:has(:checked)::after {
+    border-radius: 50%;
+    content: '';
+}
+
+.radio-3 label::before {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+}
+
+.radio-3 label:has(:checked)::after {
+    position: absolute;
+    top: 50%;
+    left: calc(10px + 0.7em);
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #2589d0;
+}
+
+.radio-3 input {
+    display: none;
+}
+
+/* ※送信ボタンのスニペット */
+.button-56 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.button-56:hover {
+    background-color: #1579c0;
+}
+
+.button-56::before {
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+    content: '';
+}
+
+
+/* ※トップへ戻るボタン */
+.button-44 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    background-image: repeating-linear-gradient(-45deg, #eee, #eee 1px, #ffffff 1px, #ffffff 4px);
+    color: #333333;
+    font-weight: 600;
+    font-size: 1em;
+    transition: box-shadow .3s;
+}
+
+.button-44:hover {
+    box-shadow: 0 7px 30px -5px rgb(0 0 0 / 20%);
+}
+
+.button-44::after {
+    transform: rotate(45deg);
+    width: 5px;
+    height: 5px;
+    margin-left: 10px;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    content: '';
+}

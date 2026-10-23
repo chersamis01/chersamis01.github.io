@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>htmlで動画を再生させる</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box /* border-box;box-sizingを使うことにより、paddingがwidthの中に組み込まれるP85(paddingとborderが幅に含まれるようになる) */
+}
+
+.video-wrapper{
+width: 100%;
+height: 100vh;/* 1企画文に対しての比率。100vhで1画面分。50vhで高さが50％になる */
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+}
+
+video{
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+
+.text-wrapper{
+width: 50%;
+padding: 200px 100px;
+background-color: #00000088;
+color: #ffffff;
+font-family: "Playpen Sans", cursive;
+}
+
+.text-wrapper>h1{
+font-size: 44px;
+margin-bottom: 100px;
+}
+
+.text-wrapper>p{
+font-size: 18px;
+line-height: 2;
+}
+
+/* 960px以下の時の設定 */
+@media (width <= 960px){
+.text-wrapper{ 
+padding: 100px 50px;
+}
+
+.text-wrapper>h1{
+font-size: 32px;
+margin-bottom: 50px;
+}
+}
+
+/* 680px以下の時 */
+@media (width <= 680px){
+.text-wrapper{
+width: 80%;
+padding: 50px 20px;
+margin: 10%;
+border-radius: 10px;
+}
+
+.text-wrapper>h1{
+font-size: 26px;
+margin-bottom: 30px;
+}
+
+.text-wrapper>p{
+font-size: 16px;
+line-height: 1.75;
+}
+
+video{
+object-fit: cover;
+object-position: 50% center;/* 動画の表示位置を微調整できる */
+width: 100%;
+height: 100%;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- <video src="img/main.mp4" controls></video> コントローラーを付けて視聴者が再生をコントロールできるようにする -->
+
+<div class="video-wrapper">
+<video src="img/main.mp4" autoplay muted loop playsinline> <!-- autoplayはmutetoとloopはセット。playsinlineはiOS/iphon用に必須 -->
+</video>
+</div>
+
+<div class="text-wrapper">
+<h1>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vel unde ullam.
+</h1>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque delectus excepturi consequuntur inventore voluptas totam autem voluptate aliquam expedita consectetur minus officiis harum necessitatibus repellendus cumque esse, sapiente, corporis quis, culpa earum in! Fugiat animi eligendi eaque voluptatem repellendus! Nam sed rerum deleniti vero atque laudantium sit quod aperiam accusamus? Facilis aut aliquid omnis soluta. Saepe dicta labore repellendus eos quam reprehenderit, ut amet dolore rerum est maiores mollitia asperiores animi obcaecati, doloremque repellat, in minus accusamus libero! Itaque ad et magni maiores hic? Perspiciatis, architecto ex unde quibusdam eius ut minus earum suscipit rerum ad dolores laborum provident itaque aliquid sunt? Praesentium impedit aliquid recusandae illo ex blanditiis facere alias possimus, velit voluptatibus sed veritatis a? Totam incidunt inventore sequi temporibus dolor cum labore sit, architecto reprehenderit beatae nemo officiis! Odio ipsam qui excepturi minima illo? Autem laboriosam ipsum consequatur rem eos? Accusantium commodi voluptatum quo aut doloribus iure corrupti alias quod inventore, quidem amet nam, porro sequi animi necessitatibus illo maiores omnis nulla. Quisquam ut dolore voluptas. Consequuntur iste corrupti optio non rerum earum necessitatibus at minima dolorem, error assumenda cumque quis consectetur eaque dicta ea. Iste praesentium voluptate amet vel voluptatum deserunt architecto quaerat iusto aut impedit! Quibusdam, veniam, eligendi fuga facilis eaque tempore incidunt nostrum minus inventore, repudiandae suscipit. Maiores, minima totam quaerat accusantium quam ex quos natus facilis velit architecto illum dolor et vel. Aliquam debitis quae aut odio numquam tempore, deserunt accusantium sint quia distinctio quis in dolorem quod iusto soluta neque porro. Porro, ullam excepturi labore incidunt illo aliquam blanditiis dolorum doloribus soluta similique recusandae, facilis enim ad possimus. Quam, labore! Ut, expedita maiores! Ratione officiis ex reiciendis aspernatur a. Repellat fuga repudiandae, assumenda laborum vitae ipsa quidem porro consequuntur architecto laudantium recusandae doloribus alias a quod autem saepe ullam asperiores laboriosam? Exercitationem.
+</p>
+
+</div>
+
+</body>
+</html>
