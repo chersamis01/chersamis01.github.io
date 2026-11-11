@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f4">
+    <meta name="description" content="Holidayを飾る、コーヒーと甘いもののウィッシュリスト。">
+    <title>HOLIDAY WISHLISTS | 季節を楽しむ、とっておき</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="HOLIDAY WISHLISTS ホーム">HOLIDAY <span>WISHLISTS</span></a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="#story">OUR STORY</a>
+        <a href="#wishlist">WISHLIST</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header-cta" href="#wishlist">FIND YOUR FAVORITE <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=2400&amp;q=88" alt="冬の午後、コーヒーを淹れる静かなひととき" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow"><span></span> A LITTLE JOY FOR THE SEASON <span></span></p>
+          <h1 id="hero-title">HOLIDAY<br><em>WISHLISTS</em></h1>
+          <p class="hero-copy">Holidayを飾る、極上のアイテム。</p>
+          <a class="hero-link" href="#wishlist">ウィッシュリストを見る <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-index" aria-hidden="true">VOL. 01 <span>—</span> WINTER EDITION</p>
+      </section>
+
+      <section class="intro section-shell" id="story" aria-labelledby="intro-title">
+        <p class="eyebrow"><span class="eyebrow-mark">01</span> THE ART OF SLOWING DOWN</p>
+        <div class="intro-grid">
+          <h2 id="intro-title">いつもの一日に、<br>小さなごほうびを。</h2>
+          <div class="intro-copy">
+            <p>湯気の向こうに広がる、焙煎したての香り。お気に入りの席で味わう、できたてのお菓子。</p>
+            <p>忙しい季節だからこそ、心がほどけるひとときを。HOLIDAY WISHLISTSから、とっておきの3品をお届けします。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features section-shell" aria-labelledby="features-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-mark">02</span> MADE WITH CARE</p>
+            <h2 id="features-title">ここで過ごす理由</h2>
+          </div>
+          <p class="section-note">ささやかだけれど、丁寧に。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-number">01 / COFFEE</span>
+            <div class="feature-symbol" aria-hidden="true">✳</div>
+            <h3>こだわりの自家焙煎</h3>
+            <p>豆の個性と向き合い、少量ずつ丁寧に。ふくよかな香りと余韻をお楽しみください。</p>
+          </article>
+          <article class="feature-item feature-item-accent">
+            <span class="feature-number">02 / PLACE</span>
+            <div class="feature-symbol" aria-hidden="true">⌂</div>
+            <h3>静かで落ち着く空間</h3>
+            <p>木のぬくもりに包まれた店内で、時計を気にせず自分の時間を。</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-number">03 / SWEETS</span>
+            <div class="feature-symbol" aria-hidden="true">❋</div>
+            <h3>旬を味わう自家製スイーツ</h3>
+            <p>季節の素材を生かして、毎日お店で焼き上げる小さなごほうび。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wishlist" id="wishlist" aria-labelledby="wishlist-title">
+        <div class="section-shell wishlist-shell">
+          <div class="section-heading wishlist-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-mark">03</span> THE WISH LIST</p>
+              <h2 id="wishlist-title">冬のお気に入り</h2>
+            </div>
+            <p class="section-note">今日の気分にぴったりの一品を。</p>
+          </div>
+          <div class="wishlist-grid" id="wishlist-items" aria-live="polite" aria-busy="true"></div>
+          <noscript><p class="no-script-note">アイテムを見るにはJavaScriptを有効にしてください。</p></noscript>
+        </div>
+        <div class="wishlist-stamp" aria-hidden="true">A MOMENT<br>TO YOURSELF</div>
+      </section>
+
+      <section class="faq section-shell" id="faq" aria-labelledby="faq-title">
+        <div class="faq-intro">
+          <p class="eyebrow"><span class="eyebrow-mark">04</span> GOOD TO KNOW</p>
+          <h2 id="faq-title">よくあるご質問</h2>
+          <p>ご来店前に気になることがあれば、こちらをご覧ください。</p>
+        </div>
+        <div class="faq-list" id="faq-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-wordmark" href="#top">HOLIDAY <span>WISHLISTS</span></a>
+      <p>Make room for a little joy.</p>
+      <a class="back-to-top" href="#top">BACK TO TOP <span aria-hidden="true">↑</span></a>
+      <small>&copy; 2026 HOLIDAY WISHLISTS</small>
+    </footer>
+  </body>
+</html>
